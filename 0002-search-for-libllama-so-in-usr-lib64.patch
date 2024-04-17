@@ -1,0 +1,25 @@
+From 6ff51f64a0472e4bc83a4a64d170a1791ce88e1a Mon Sep 17 00:00:00 2001
+From: Tomas Tomecek <ttomecek@redhat.com>
+Date: Thu, 11 Apr 2024 09:47:29 +0200
+Subject: [PATCH] search for libllama.so in /usr/lib64
+
+Signed-off-by: Tomas Tomecek <ttomecek@redhat.com>
+---
+ llama_cpp/llama_cpp.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/llama_cpp/llama_cpp.py b/llama_cpp/llama_cpp.py
+index accc02c..731abe5 100644
+--- a/llama_cpp/llama_cpp.py
++++ b/llama_cpp/llama_cpp.py
+@@ -31,6 +31,7 @@ def _load_shared_library(lib_base_name: str):
+     if sys.platform.startswith("linux"):
+         _lib_paths += [
+             _base_path / f"lib{lib_base_name}.so",
++            pathlib.Path(f"/usr/lib64/lib{lib_base_name}.so")
+         ]
+     elif sys.platform == "darwin":
+         _lib_paths += [
+-- 
+2.44.0
+

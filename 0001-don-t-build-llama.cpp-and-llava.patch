@@ -1,0 +1,28 @@
+From 854fa8a9114778e9c386201b8fa2ca413dfdd2cd Mon Sep 17 00:00:00 2001
+From: Tomas Tomecek <ttomecek@redhat.com>
+Date: Tue, 9 Apr 2024 13:08:58 +0200
+Subject: [PATCH] don't build llama.cpp and llava
+
+Signed-off-by: Tomas Tomecek <ttomecek@redhat.com>
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 70f9b99..e48cd3c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.21)
+ 
+ project(llama_cpp)
+ 
+-option(LLAMA_BUILD "Build llama.cpp shared library and install alongside python package" ON)
+-option(LLAVA_BUILD "Build llava shared library and install alongside python package" ON)
++option(LLAMA_BUILD "Build llama.cpp shared library and install alongside python package" OFF)
++option(LLAVA_BUILD "Build llava shared library and install alongside python package" OFF)
+ 
+ if (LLAMA_BUILD)
+     set(BUILD_SHARED_LIBS "On")
+-- 
+2.44.0
+
