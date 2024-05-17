@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 
 Name:           python-%{pypi_name}
-Version:        %{pypi_version}
+Version:        0.2.74
 Release:        %autorelease
 License:        MIT
 Summary:        Simple Python bindings for @ggerganov's llama.cpp library
